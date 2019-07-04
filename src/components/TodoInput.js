@@ -39,7 +39,7 @@ export default class TodoInput extends React.Component {
           onChange={this.handleChange}
           name="text"
           type="text"
-          placeholder="What do you wanna add?"
+          placeholder="What needs to be done?"
         />
       </form>
     );

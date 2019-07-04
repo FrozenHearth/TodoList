@@ -6,7 +6,7 @@ body {
 }
 
 .todo-list {
-  background-color: #fff;
+  background-color: #fefefe;
   margin: auto;
   width: 40%;
   display: flex;
@@ -44,9 +44,9 @@ body {
   display: flex;
   width: 40%;
   padding: 30px;
-  margin: 1em auto 0.1em auto;
+  margin: -2em auto 0.1em auto;
   outline: 0;
-  background-color: #fff;
+  background: #fefefe;
   border: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 0 -5px #eee;
   font-size: 1.7em;
@@ -59,7 +59,7 @@ body {
   font-style: italic;
   opacity: 0.8;
   letter-spacing: 0.02em;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .header-text {
@@ -67,16 +67,24 @@ body {
   color: #96373778;
   font-weight: 100;
   font-size: 6em;
+  margin-top: 0.2em;
 }
 
 .delete-btn {
   margin-left: auto;
   background: none;
+  padding-right: 1.5em;
   outline: none;
   color: #96373778;
   cursor: pointer;
   border: none;
-  font-size: 1em;
+  font-size: 1.5em;
+  vertical-align: middle;
+}
+
+.delete-btn:active,
+.delete-btn:hover {
+  color: rgba(150, 55, 55, 0.9);
 }
 
 .footer-container {
