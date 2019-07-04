@@ -14,6 +14,9 @@ function TodoItem(props) {
       >
         {props.todo.text}
       </p>
+      <button onClick={props.deleteTodo} className="delete-btn">
+        X
+      </button>
     </div>
   );
 }
