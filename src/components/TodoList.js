@@ -8,6 +8,18 @@ export default class TodoList extends React.Component {
     todosToShow: 'all',
     activeTodo: 'allButton'
   };
+
+  componentWillMount() {
+    localStorage.getItem('todos') &&
+      this.setState({
+        todos: JSON.parse(localStorage.getItem('todos'))
+      });
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('todos', JSON.stringify(nextState.todos));
+  }
+
   addTodo = todo => {
     const newTodos = [...this.state.todos, todo];
     this.setState({
