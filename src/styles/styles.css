@@ -109,7 +109,15 @@ body {
   top: 0.4em;
 }
 
-.all-btn,
+.all-btn {
+  background: none;
+  outline: 0;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0.4em 1.3em;
+  font-weight: 100;
+}
+
 .active-btn,
 .complete-btn {
   margin: 0.4em 1em 0 0.4em;
@@ -119,4 +127,137 @@ body {
   font-size: 1em;
   padding: 0.4em 1.3em;
   font-weight: 100;
+}
+
+@media all and (min-width: 320px) {
+  .todo-input {
+    width: 115%;
+  }
+  .todo-list {
+    width: 115%;
+  }
+  .filters {
+    left: 0;
+  }
+  .active-btn,
+  .complete-btn {
+    margin: 0.4em 0 0 0.4em;
+  }
+  .complete-btn {
+    padding: 0.4em 0.7em;
+  }
+}
+
+@media all and (min-width: 375px) {
+  .todo-input {
+    width: 96%;
+  }
+  .todo-list {
+    width: 96%;
+  }
+  .filters {
+    left: 0;
+  }
+  .active-btn,
+  .complete-btn {
+    margin: 0.4em 0 0 0.4em;
+  }
+  .complete-btn {
+    padding: 0.4em 0.7em;
+  }
+}
+
+@media all and (min-width: 411px) {
+  .todo-input {
+    width: 90%;
+  }
+  .todo-list {
+    width: 90%;
+  }
+  .filters {
+    left: 0;
+  }
+  .active-btn,
+  .complete-btn {
+    margin: 0.4em 0 0 0.4em;
+  }
+  .complete-btn {
+    padding: 0.4em 0.7em;
+  }
+}
+
+@media all and (min-width: 500px) {
+  .todo-input {
+    width: 75%;
+  }
+  .todo-list {
+    width: 75%;
+  }
+  .filters {
+    left: 0;
+  }
+  .active-btn,
+  .complete-btn {
+    margin: 0.4em 0 0 0.4em;
+  }
+  .complete-btn {
+    padding: 0.4em 0.7em;
+  }
+}
+
+@media all and (min-width: 700px) {
+  .todo-input {
+    width: 65%;
+  }
+  .todo-list {
+    width: 65%;
+  }
+  .filters {
+    left: 0;
+  }
+  .active-btn,
+  .complete-btn {
+    margin: 0.4em 0 0 0.4em;
+  }
+  .complete-btn {
+    padding: 0.4em 0.7em;
+  }
+}
+
+@media all and (min-width: 1000px) {
+  .todo-input {
+    width: 55%;
+  }
+  .todo-list {
+    width: 55%;
+  }
+  .filters {
+    left: 0;
+  }
+  .active-btn,
+  .complete-btn {
+    margin: 0.4em 0 0 0.4em;
+  }
+  .complete-btn {
+    padding: 0.4em 0.7em;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  .todo-input {
+    width: 45%;
+  }
+  .todo-list {
+    width: 45%;
+  }
+  .filters {
+    left: 0;
+  }
+  .active-btn,
+  .complete-btn {
+    margin: 0.4em 0 0 0.4em;
+  }
+  .complete-btn {
+    padding: 0.4em 0.7em;
+  }
 }
