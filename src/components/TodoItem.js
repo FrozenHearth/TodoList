@@ -1,18 +1,19 @@
 import React from 'react';
 
-function TodoItem(props) {
+const TodoItem = (props) => {
+  const {complete, text} = props.todo;
   return (
     <div className="todo-item">
       <p
         style={{
-          textDecoration: props.todo.complete ? 'line-through' : 'none',
-          color: props.todo.complete ? '#cdcdcd' : 'black',
-          fontStyle: props.todo.complete ? 'italic' : 'normal'
+          textDecoration: complete ? 'line-through' : 'none',
+          color: complete ? '#cdcdcd' : 'black',
+          fontStyle: complete ? 'italic' : 'normal'
         }}
         onClick={props.toggleCompleted}
         className="todo-text"
       >
-        {props.todo.text}
+        {text}
       </p>
       <button onClick={props.deleteTodo} className="delete-btn">
         X
