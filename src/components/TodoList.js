@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 import TodoInput from './TodoInput';
+import '../styles/TodoList.css';
 
 export default class TodoList extends React.Component {
   state = {
@@ -16,7 +17,7 @@ export default class TodoList extends React.Component {
       });
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  componentWillUpdate(_, nextState) {
     localStorage.setItem('todos', JSON.stringify(nextState.todos));
   }
 
@@ -56,24 +57,18 @@ export default class TodoList extends React.Component {
   };
   render() {
     let todos = [];
-    if (
-      this.state.todosToShow === 'all' &&
-      this.state.activeTodo === 'allButton'
-    ) {
+    const { todosToShow, activeTodo } = this.state;
+    const remainingItems = this.state.todos.filter(todo => !todo.complete)
+      .length;
+    if (todosToShow === 'all' && activeTodo === 'allButton') {
       todos = this.state.todos;
-    } else if (
-      this.state.todosToShow === 'active' &&
-      this.state.activeTodo === 'activeButton'
-    ) {
+    } else if (todosToShow === 'active' && activeTodo === 'activeButton') {
       todos = this.state.todos.filter(todo => !todo.complete);
-    } else if (
-      this.state.todosToShow === 'complete' &&
-      this.state.activeTodo === 'completeButton'
-    ) {
+    } else if (todosToShow === 'complete' && activeTodo === 'completeButton') {
       todos = this.state.todos.filter(todo => todo.complete);
     }
     return (
-      <div>
+      <>
         <h1 className="header-text">todos</h1>
         <TodoInput onSubmit={this.addTodo} />
         {this.state.todos.length > 0 && (
@@ -87,29 +82,24 @@ export default class TodoList extends React.Component {
               />
             ))}
             <footer className="footer-container">
-              <p className="todos-count">
-                {this.state.todos.filter(todo => !todo.complete).length} items
-                left
-              </p>
+              <p className="todos-count">{remainingItems} items left</p>
               <div className="filters">
                 <button
-                  style={{
-                    borderColor:
-                      this.state.activeTodo === 'allButton' ? '#96373778' : null
-                  }}
-                  className="all-btn"
+                  className={
+                    activeTodo === 'allButton'
+                      ? 'all-btn active-btn-border'
+                      : 'all-btn'
+                  }
                   onClick={() => this.updateTodoToShow('all', 'allButton')}
                 >
                   All
                 </button>
                 <button
-                  style={{
-                    borderColor:
-                      this.state.activeTodo === 'activeButton'
-                        ? '#96373778'
-                        : null
-                  }}
-                  className="active-btn"
+                  className={
+                    activeTodo === 'activeButton'
+                      ? 'active-todo-btn active-btn-border'
+                      : 'active-todo-btn'
+                  }
                   onClick={() =>
                     this.updateTodoToShow('active', 'activeButton')
                   }
@@ -117,13 +107,11 @@ export default class TodoList extends React.Component {
                   Active
                 </button>
                 <button
-                  style={{
-                    borderColor:
-                      this.state.activeTodo === 'completeButton'
-                        ? '#96373778'
-                        : null
-                  }}
-                  className="complete-btn"
+                  className={
+                    activeTodo === 'completeButton'
+                      ? 'complete-btn active-btn-border'
+                      : 'complete-btn'
+                  }
                   onClick={() =>
                     this.updateTodoToShow('complete', 'completeButton')
                   }
@@ -134,7 +122,7 @@ export default class TodoList extends React.Component {
             </footer>
           </div>
         )}
-      </div>
+      </>
     );
   }
 }
