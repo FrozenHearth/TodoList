@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/TodoItem.css';
 
-const TodoItem = props => {
+export const TodoItem = props => {
   const { complete, text } = props.todo;
   return (
     <div className="todo-item">
@@ -18,4 +18,3 @@ const TodoItem = props => {
   );
 };
 
-export default TodoItem;
