@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { TodoItem } from './TodoItem';
 import TodoInput from './TodoInput';
 import '../styles/TodoList.css';
 
-export default class TodoList extends React.Component {
+export default class TodoList extends Component {
   state = {
     todos: [],
     todosToShow: 'all',
@@ -29,8 +29,7 @@ export default class TodoList extends React.Component {
   };
 
   toggleCompleted = id => {
-    this.setState({
-      todos: this.state.todos.map(todo => {
+    const completedTodos = this.state.todos.map(todo => {
         if (todo.id === id) {
           return {
             ...todo,
@@ -40,6 +39,8 @@ export default class TodoList extends React.Component {
           return todo;
         }
       })
+    this.setState({
+      todos: completedTodos
     });
   };
 
