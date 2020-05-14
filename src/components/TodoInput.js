@@ -3,13 +3,10 @@ import shortid from 'shortid';
 import '../styles/TodoInput.css';
 
 export default class TodoInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       text: ''
     };
-  }
-
+  
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
