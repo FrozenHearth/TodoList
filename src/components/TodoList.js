@@ -47,13 +47,14 @@ export default class TodoList extends Component {
   updateTodoToShow = (todo, activeTodo) => {
     this.setState({
       todosToShow: todo,
-      activeTodo: activeTodo
+      activeTodo,
     });
   };
 
   deleteTodo = id => {
+    const deletedTodo = this.state.todos.filter(todo => todo.id !== id);
     this.setState({
-      todos: this.state.todos.filter(todo => todo.id !== id)
+      todos: deletedTodo
     });
   };
   render() {
