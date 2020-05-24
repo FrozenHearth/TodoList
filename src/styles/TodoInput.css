@@ -1,21 +1,30 @@
-.todo-input {
-  display: flex;
-  width: 40%;
-  padding: 30px;
-  margin: -2em auto 0.1em auto;
-  outline: 0;
-  background: #fefefe;
-  border: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 0 -5px #eee;
-  font-size: 1.7em;
-  font-weight: 300;
-  text-indent: 25px;
+.todo-input-container {
+  width: 55rem;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  bottom: 6rem;
+  position: relative;
 }
 
-.todo-input::placeholder {
-  color: #cdcdcd;
+.todo-input {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--todo-input-color);
+  display: flex;
+  padding: 1.8rem 0;
+  width: 100%;
+  outline: 0;
+  background: var(--todo-offwhite);
+  border: none;
+  box-shadow: 0 -2px 1px rgba(0, 0, 0, 0.03);
+  font-size: 2.4rem;
+  font-weight: 300;
+  text-indent: 6rem;
+}
+
+input::placeholder {
+  color: var(--todo-input-color);
   font-style: italic;
-  opacity: 0.8;
-  letter-spacing: 0.02em;
+  font-size: 2.4rem;
+  opacity: 0.2;
   font-weight: 300;
 }
