@@ -1,22 +1,23 @@
 import React from 'react';
+import '../styles/footer.css';
 
 export const Footer = props => {
-  const { remainingItems, activeTodo, updateTodoToShow } = props;
+  const { remaining, activeTodo, updateTodoToShow } = props;
   return (
     <footer className="footer-container">
       <p className="todos-count">
-        {remainingItems !== 1 ? 'items left' : 'item left'}
+        {remaining !== 1 ? `${remaining} items left` : `${remaining} item left`}
       </p>
-      <div className="filters">
-        <button
+      <ul className="filters">
+        <li
           className={
             activeTodo === 'allButton' ? 'all-btn active-btn-border' : 'all-btn'
           }
           onClick={() => updateTodoToShow('all', 'allButton')}
         >
           All
-        </button>
-        <button
+        </li>
+        <li
           className={
             activeTodo === 'activeButton'
               ? 'active-todo-btn active-btn-border'
@@ -25,8 +26,8 @@ export const Footer = props => {
           onClick={() => updateTodoToShow('active', 'activeButton')}
         >
           Active
-        </button>
-        <button
+        </li>
+        <li
           className={
             activeTodo === 'completeButton'
               ? 'complete-btn active-btn-border'
@@ -35,8 +36,8 @@ export const Footer = props => {
           onClick={() => updateTodoToShow('complete', 'completeButton')}
         >
           Completed
-        </button>
-      </div>
+        </li>
+      </ul>
     </footer>
   );
 };
