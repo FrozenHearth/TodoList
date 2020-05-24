@@ -1,24 +1,24 @@
-import React, { Component } from "react";
-import { TodoItem } from "./TodoItem";
-import TodoInput from "./TodoInput";
-import "../styles/TodoList.css";
+import React, { Component } from 'react';
+import { TodoItem } from './TodoItem';
+import TodoInput from './TodoInput';
+import '../styles/TodoList.css';
 
 export default class TodoList extends Component {
   state = {
     todos: [],
-    todosToShow: "all",
-    activeTodo: "allButton"
+    todosToShow: 'all',
+    activeTodo: 'allButton'
   };
 
   componentWillMount() {
-    localStorage.getItem("todos") &&
+    localStorage.getItem('todos') &&
       this.setState({
-        todos: JSON.parse(localStorage.getItem("todos"))
+        todos: JSON.parse(localStorage.getItem('todos'))
       });
   }
 
   componentWillUpdate(_, nextState) {
-    localStorage.setItem("todos", JSON.stringify(nextState.todos));
+    localStorage.setItem('todos', JSON.stringify(nextState.todos));
   }
 
   addTodo = todo => {
@@ -62,11 +62,11 @@ export default class TodoList extends Component {
     const { todosToShow, activeTodo } = this.state;
     const remainingItems = this.state.todos.filter(todo => !todo.complete)
       .length;
-    if (todosToShow === "all" && activeTodo === "allButton") {
+    if (todosToShow === 'all' && activeTodo === 'allButton') {
       todos = this.state.todos;
-    } else if (todosToShow === "active" && activeTodo === "activeButton") {
+    } else if (todosToShow === 'active' && activeTodo === 'activeButton') {
       todos = this.state.todos.filter(todo => !todo.complete);
-    } else if (todosToShow === "complete" && activeTodo === "completeButton") {
+    } else if (todosToShow === 'complete' && activeTodo === 'completeButton') {
       todos = this.state.todos.filter(todo => todo.complete);
     }
     return (
@@ -85,39 +85,39 @@ export default class TodoList extends Component {
             ))}
             <footer className="footer-container">
               <p className="todos-count">
-                {remainingItems !== 1 ? "items left" : "item left"}
+                {remainingItems !== 1 ? 'items left' : 'item left'}
               </p>
               <div className="filters">
                 <button
                   className={
-                    activeTodo === "allButton"
-                      ? "all-btn active-btn-border"
-                      : "all-btn"
+                    activeTodo === 'allButton'
+                      ? 'all-btn active-btn-border'
+                      : 'all-btn'
                   }
-                  onClick={() => this.updateTodoToShow("all", "allButton")}
+                  onClick={() => this.updateTodoToShow('all', 'allButton')}
                 >
                   All
                 </button>
                 <button
                   className={
-                    activeTodo === "activeButton"
-                      ? "active-todo-btn active-btn-border"
-                      : "active-todo-btn"
+                    activeTodo === 'activeButton'
+                      ? 'active-todo-btn active-btn-border'
+                      : 'active-todo-btn'
                   }
                   onClick={() =>
-                    this.updateTodoToShow("active", "activeButton")
+                    this.updateTodoToShow('active', 'activeButton')
                   }
                 >
                   Active
                 </button>
                 <button
                   className={
-                    activeTodo === "completeButton"
-                      ? "complete-btn active-btn-border"
-                      : "complete-btn"
+                    activeTodo === 'completeButton'
+                      ? 'complete-btn active-btn-border'
+                      : 'complete-btn'
                   }
                   onClick={() =>
-                    this.updateTodoToShow("complete", "completeButton")
+                    this.updateTodoToShow('complete', 'completeButton')
                   }
                 >
                   Completed
