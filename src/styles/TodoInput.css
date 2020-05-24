@@ -7,8 +7,8 @@
 }
 
 .todo-input {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: var(--todo-input-color);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--todo-default-color);
   display: flex;
   padding: 1.8rem 0;
   width: 100%;
@@ -22,7 +22,7 @@
 }
 
 input::placeholder {
-  color: var(--todo-input-color);
+  color: var(--todo-default-color);
   font-style: italic;
   font-size: 2.4rem;
   opacity: 0.2;
