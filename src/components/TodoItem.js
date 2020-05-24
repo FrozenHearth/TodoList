@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/TodoItem.css';
+import React from "react";
+import "../styles/TodoItem.css";
 
 export const TodoItem = props => {
   const { complete, text } = props.todo;
@@ -7,7 +7,7 @@ export const TodoItem = props => {
     <div className="todo-item">
       <p
         onClick={props.toggleCompleted}
-        className={complete ? 'todo-complete-text todo-text' : 'todo-text'}
+        className={complete ? "todo-complete-text todo-text" : "todo-text"}
       >
         {text}
       </p>
@@ -17,4 +17,3 @@ export const TodoItem = props => {
     </div>
   );
 };
-
