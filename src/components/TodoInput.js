@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import shortid from 'shortid';
-import '../styles/TodoInput.css';
+import React, { Component } from "react";
+import shortid from "shortid";
+import "../styles/TodoInput.css";
 
 export default class TodoInput extends Component {
-    state = {
-      text: ''
-    };
-  
+  state = {
+    text: ""
+  };
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({
@@ -24,15 +24,16 @@ export default class TodoInput extends Component {
         id: shortid.generate()
       });
       this.setState({
-        text: ''
+        text: ""
       });
     }
   };
   render() {
     const { text } = this.state;
     return (
-      <form autoComplete="off" onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="todo-input-container">
         <input
+          autoComplete="off"
           className="todo-input"
           value={text}
           onChange={this.handleChange}
