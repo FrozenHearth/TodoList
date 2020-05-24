@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TodoItem } from './TodoItem';
 import TodoInput from './TodoInput';
 import '../styles/TodoList.css';
+import { Footer } from './Footer';
 
 export default class TodoList extends Component {
   state = {
@@ -10,14 +11,14 @@ export default class TodoList extends Component {
     activeTodo: 'allButton'
   };
 
-  componentWillMount() {
+  componentDidMount() {
     localStorage.getItem('todos') &&
       this.setState({
         todos: JSON.parse(localStorage.getItem('todos'))
       });
   }
 
-  componentWillUpdate(_, nextState) {
+  UNSAFE_componentWillUpdate(_, nextState) {
     localStorage.setItem('todos', JSON.stringify(nextState.todos));
   }
 
@@ -71,7 +72,6 @@ export default class TodoList extends Component {
     }
     return (
       <>
-        <h1 className="header-text">todos</h1>
         <TodoInput onSubmit={this.addTodo} />
         {this.state.todos.length > 0 && (
           <div className="todo-list">
@@ -83,47 +83,11 @@ export default class TodoList extends Component {
                 todo={todo}
               />
             ))}
-            <footer className="footer-container">
-              <p className="todos-count">
-                {remainingItems !== 1 ? 'items left' : 'item left'}
-              </p>
-              <div className="filters">
-                <button
-                  className={
-                    activeTodo === 'allButton'
-                      ? 'all-btn active-btn-border'
-                      : 'all-btn'
-                  }
-                  onClick={() => this.updateTodoToShow('all', 'allButton')}
-                >
-                  All
-                </button>
-                <button
-                  className={
-                    activeTodo === 'activeButton'
-                      ? 'active-todo-btn active-btn-border'
-                      : 'active-todo-btn'
-                  }
-                  onClick={() =>
-                    this.updateTodoToShow('active', 'activeButton')
-                  }
-                >
-                  Active
-                </button>
-                <button
-                  className={
-                    activeTodo === 'completeButton'
-                      ? 'complete-btn active-btn-border'
-                      : 'complete-btn'
-                  }
-                  onClick={() =>
-                    this.updateTodoToShow('complete', 'completeButton')
-                  }
-                >
-                  Completed
-                </button>
-              </div>
-            </footer>
+            <Footer
+              updateTodoToShow={this.updateTodoToShow}
+              remainingItems={remainingItems}
+              activeTodo={activeTodo}
+            />
           </div>
         )}
       </>
