@@ -1,15 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300&display=swap');
 
 :root {
   --todo-dark-brown: rgba(175, 47, 47, 0.15);
+  --todo-darker-brown: rgba(150, 55, 55, 0.9);
   --todo-offwhite: #fefefe;
   --todo-white: #fff;
-  --todo-input-color: #4d4d4d;
+  --todo-dark-white: #cecece;
+  --todo-default-color: #4d4d4d;
   --todo-bg-color: whitesmoke;
   --todo-button-padding: 0.4rem 1.3rem;
   --todo-button-margin: 0.4rem 0 0 0.4rem;
   --todo-complete-btn-padding: 0.4rem 0.7rem;
-  font: 10px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 10px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -20,4 +22,5 @@ body {
   background-color: var(--todo-bg-color);
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
+  color: var(--todo-default-color);
 }

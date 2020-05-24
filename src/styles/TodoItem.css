@@ -4,35 +4,34 @@
   align-items: center;
   padding-left: 6rem;
   width: 100%;
-  border-bottom: 1px solid #cecece;
-  font-size: 15px;
-  color: #333;
+  border-bottom: 1px solid var(--todo-dark-white);
+  color: var(--todo-default-color);
 }
 
 .todo-text {
-  font-size: 1.7em;
+  font-size: 2.4rem;
   font-weight: 300;
   cursor: pointer;
 }
 
-.todo-complete-text {
+.todo-complete {
   text-decoration: line-through;
-  color: #cdcdcd;
+  color: var(--todo-dark-white);
 }
 
 .delete-btn {
   margin-left: auto;
   background: none;
-  padding-right: 1.5em;
+  padding-right: 3rem;
   outline: none;
-  color: #96373778;
+  color: var(--todo-dark-brown);
   cursor: pointer;
   border: none;
-  font-size: 1.5em;
+  font-size: 2rem;
   vertical-align: middle;
 }
 
 .delete-btn:active,
 .delete-btn:hover {
-  color: rgba(150, 55, 55, 0.9);
+  color: var(--todo-darker-brown);
 }
