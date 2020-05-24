@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import shortid from "shortid";
-import "../styles/TodoInput.css";
+import React, { Component } from 'react';
+import shortid from 'shortid';
+import '../styles/TodoInput.css';
 
 export default class TodoInput extends Component {
   state = {
-    text: ""
+    text: ''
   };
 
   handleChange = e => {
@@ -24,7 +24,7 @@ export default class TodoInput extends Component {
         id: shortid.generate()
       });
       this.setState({
-        text: ""
+        text: ''
       });
     }
   };
