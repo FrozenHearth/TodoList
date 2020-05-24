@@ -61,8 +61,7 @@ export default class TodoList extends Component {
   render() {
     let todos = [];
     const { todosToShow, activeTodo } = this.state;
-    const remainingItems = this.state.todos.filter(todo => !todo.complete)
-      .length;
+    const remaining = this.state.todos.filter(todo => !todo.complete).length;
     if (todosToShow === 'all' && activeTodo === 'allButton') {
       todos = this.state.todos;
     } else if (todosToShow === 'active' && activeTodo === 'activeButton') {
@@ -85,7 +84,7 @@ export default class TodoList extends Component {
             ))}
             <Footer
               updateTodoToShow={this.updateTodoToShow}
-              remainingItems={remainingItems}
+              remaining={remaining}
               activeTodo={activeTodo}
             />
           </div>
