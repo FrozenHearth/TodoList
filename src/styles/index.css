@@ -2,14 +2,16 @@
 
 :root {
   --todo-dark-brown: rgba(175, 47, 47, 0.15);
+  --todo-btn-darker-brown: rgba(175, 47, 47, 0.3);
   --todo-darker-brown: rgba(150, 55, 55, 0.9);
   --todo-offwhite: #fefefe;
   --todo-white: #fff;
   --todo-dark-white: #cecece;
   --todo-default-color: #4d4d4d;
   --todo-bg-color: whitesmoke;
-  --todo-button-padding: 0.4rem 1.3rem;
-  --todo-button-margin: 0.4rem 0 0 0.4rem;
+  --todo-btn-color: #777;
+  --todo-btn-padding: 0.4rem 0.8rem;
+  --todo-btn-margin: 0.4rem 0 0 1.2rem;
   --todo-complete-btn-padding: 0.4rem 0.7rem;
   font: 10px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
