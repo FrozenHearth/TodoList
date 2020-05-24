@@ -1,0 +1,39 @@
+.footer-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 0 1.6rem;
+}
+
+.todos-count {
+  font-size: 1.4rem;
+  margin-right: auto;
+}
+
+.filters {
+  list-style-type: none;
+  display: flex;
+}
+
+.all-btn,
+.active-todo-btn,
+.complete-btn {
+  margin: var(--todo-btn-margin);
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 300;
+  padding: var(--todo-btn-padding);
+  color: var(--todo-btn-color);
+}
+
+.all-btn:hover,
+.active-todo-btn:hover,
+.complete-btn:hover {
+  border-radius: 3px;
+  border: 1px solid var(--todo-dark-brown);
+}
+
+.active-btn-border {
+  border-radius: 3px;
+  border: 1px solid var(--todo-btn-darker-brown);
+}
