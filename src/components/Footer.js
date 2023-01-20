@@ -1,43 +1,34 @@
-import React from 'react';
-import '../styles/footer.css';
+import React from "react";
+import "../styles/footer.css";
 
-export const Footer = props => {
-  const { remaining, activeTodo, updateTodoToShow } = props;
+export const Footer = ({ remaining, activeTodo, updateTodoToShow }) => {
+  const filterOptions = [
+    { name: "all", label: "All" },
+    { name: "active", label: "Active" },
+    { name: "complete", label: "Completed" }
+  ];
+
   return (
     <footer className="footer-container">
       <p className="todos-count">
         {remaining !== 1 ? `${remaining} items left` : `${remaining} item left`}
       </p>
       <ul className="filters">
-        <li
-          className={
-            activeTodo === 'allButton' ? 'all-btn active-btn-border' : 'all-btn'
-          }
-          onClick={() => updateTodoToShow('all', 'allButton')}
-        >
-          All
-        </li>
-        <li
-          className={
-            activeTodo === 'activeButton'
-              ? 'active-todo-btn active-btn-border'
-              : 'active-todo-btn'
-          }
-          onClick={() => updateTodoToShow('active', 'activeButton')}
-        >
-          Active
-        </li>
-        <li
-          className={
-            activeTodo === 'completeButton'
-              ? 'complete-btn active-btn-border'
-              : 'complete-btn'
-          }
-          onClick={() => updateTodoToShow('complete', 'completeButton')}
-        >
-          Completed
-        </li>
+        {filterOptions.map(({ name, label }, index) => (
+          <li
+            key={index}
+            className={`${name}-btn ${
+              activeTodo === name ? "active-btn-border" : ""
+            }`}
+            onClick={() => updateTodoToShow(name, name)}
+          >
+            {label}
+          </li>
+        ))}
       </ul>
     </footer>
   );
 };
+
+
+
