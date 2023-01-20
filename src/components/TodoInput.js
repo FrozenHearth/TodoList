@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import shortid from 'shortid';
-import '../styles/TodoInput.css';
+import { Component } from "react";
+import shortid from "shortid";
+import "../styles/TodoInput.css";
 
 export default class TodoInput extends Component {
   state = {
-    text: ''
+    text: "",
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const { text } = this.state;
     const trimmedText = text.trim();
@@ -21,25 +21,25 @@ export default class TodoInput extends Component {
       this.props.onSubmit({
         text,
         completed: false,
-        id: shortid.generate()
+        id: shortid.generate(),
       });
       this.setState({
-        text: ''
+        text: "",
       });
     }
   };
   render() {
     const { text } = this.state;
     return (
-      <form onSubmit={this.handleSubmit} className="todo-input-container">
+      <form onSubmit={this.handleSubmit} className='todo-input-container'>
         <input
-          autoComplete="off"
-          className="todo-input"
+          autoComplete='off'
+          className='todo-input'
           value={text}
           onChange={this.handleChange}
-          name="text"
-          type="text"
-          placeholder="What needs to be done?"
+          name='text'
+          type='text'
+          placeholder='What needs to be done?'
         />
       </form>
     );
