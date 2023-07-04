@@ -1,6 +1,16 @@
 import '../styles/footer.css';
 
-export default function Footer({ remaining, activeTodo, updateTodoToShow }) {
+type FooterProps = {
+  remaining: number;
+  activeTodo: string;
+  updateTodoToShow: (todo: string, active: string) => void;
+};
+
+export default function Footer({
+  remaining,
+  activeTodo,
+  updateTodoToShow,
+}: FooterProps) {
   return (
     <footer className="footer-container">
       <p className="todos-count">
