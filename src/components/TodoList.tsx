@@ -3,9 +3,10 @@ import TodoItem from './TodoItem';
 import TodoInput from './TodoInput';
 import '../styles/TodoList.css';
 import Footer from './Footer';
+import { Todo } from '../types/Todos';
 
 export default function TodoList() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([] as Todo[]);
   const [todosToShow, setTodosToShow] = useState('all');
   const [activeTodo, setActiveTodo] = useState('allButton');
 
@@ -17,40 +18,43 @@ export default function TodoList() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
+    if (todos.length) {
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
   }, [todos]);
 
-  const addTodo = (todo) => {
+  const addTodo = (todo: Todo) => {
     setTodos([...todos, todo]);
   };
 
-  const toggleCompleted = (id) => {
+  const toggleCompleted = (id: string) => {
     setTodos(
       todos.map((todo) =>
-        todo.id === id ? { ...todo, complete: !todo.complete } : todo
+        todo.id === id ? { ...todo, done: !todo.done } : todo
       )
     );
   };
 
-  const updateTodoToShow = (todo, active) => {
+  const updateTodoToShow = (todo: string, active: string) => {
     setTodosToShow(todo);
     setActiveTodo(active);
   };
 
-  const deleteTodo = (id) => {
+  const deleteTodo = (id: string) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  let filteredTodos = [];
+  let filteredTodos: Todo[] = [];
   if (todosToShow === 'all' && activeTodo === 'allButton') {
     filteredTodos = todos;
   } else if (todosToShow === 'active' && activeTodo === 'activeButton') {
-    filteredTodos = todos.filter((todo) => !todo.complete);
+    filteredTodos = todos.filter((todo) => !todo.done);
   } else if (todosToShow === 'complete' && activeTodo === 'completeButton') {
-    filteredTodos = todos.filter((todo) => todo.complete);
+    filteredTodos = todos.filter((todo) => todo.done);
   }
+  console.log('filteredTodos', filteredTodos);
 
-  const remaining = todos.filter((todo) => !todo.complete).length;
+  const remaining = todos.filter((todo) => !todo.done).length;
 
   return (
     <>

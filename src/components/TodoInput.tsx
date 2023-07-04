@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import '../styles/TodoInput.css';
+import { Todo } from '../types/Todos';
 
-const TodoInput = ({ onSubmit }) => {
+type TodoInputProps = {
+  onSubmit: (todo: Todo) => void;
+};
+
+const TodoInput = ({ onSubmit }: TodoInputProps) => {
   const [text, setText] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.BaseSyntheticEvent) => {
     event.preventDefault();
     if (text.trim().length > 0) {
-      onSubmit({ text, completed: false, id: nanoid() });
+      onSubmit({ text, done: false, id: nanoid() });
       setText('');
     }
   };
