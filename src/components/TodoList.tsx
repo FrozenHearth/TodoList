@@ -20,6 +20,8 @@ export default function TodoList() {
   useEffect(() => {
     if (todos.length) {
       localStorage.setItem('todos', JSON.stringify(todos));
+    } else {
+      localStorage.removeItem('todos');
     }
   }, [todos]);
 
@@ -52,7 +54,6 @@ export default function TodoList() {
   } else if (todosToShow === 'complete' && activeTodo === 'completeButton') {
     filteredTodos = todos.filter((todo) => todo.done);
   }
-  console.log('filteredTodos', filteredTodos);
 
   const remaining = todos.filter((todo) => !todo.done).length;
 
