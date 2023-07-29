@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import '../styles/TodoInput.css';
-import { Todo } from '../types/Todos';
+import '@/styles/TodoInput.css';
+import { Todo } from '@/types/Todos';
 
 type TodoInputProps = {
   onSubmit: (todo: Todo) => void;

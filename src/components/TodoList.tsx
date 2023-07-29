@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import TodoItem from './TodoItem';
 import TodoInput from './TodoInput';
-import '../styles/TodoList.css';
+import '@/styles/TodoList.css';
 import Footer from './Footer';
-import { Todo } from '../types/Todos';
+import { Todo } from '@/types/Todos';
 
 export default function TodoList() {
   const [todos, setTodos] = useState([] as Todo[]);
