@@ -1,4 +1,4 @@
-import '../styles/footer.css';
+import '@/styles/footer.css';
 
 type FooterProps = {
   remaining: number;
