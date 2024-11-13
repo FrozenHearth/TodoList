@@ -1,33 +1,30 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
-import '@/styles/TodoInput.css';
-import { Todo } from '@/types/Todos';
 
 type TodoInputProps = {
-  onSubmit: (todo: Todo) => void;
+  onSubmit: (text: string) => void;
 };
 
-const TodoInput = ({ onSubmit }: TodoInputProps) => {
-  const [text, setText] = useState('');
+export default function TodoInput({ onSubmit }: TodoInputProps) {
+  const [inputValue, setInputValue] = useState('');
 
-  const handleSubmit = (event: React.BaseSyntheticEvent) => {
-    event.preventDefault();
-    if (text.trim().length > 0) {
-      onSubmit({ text, done: false, id: nanoid() });
-      setText('');
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && inputValue.trim()) {
+      event.preventDefault();
+      onSubmit(inputValue);
+      setInputValue('');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="todo-input-container">
+    <form className="w-[55rem] mb-[0.1rem] mx-auto shadow-[0_2px_4px_#0003,0_25px_50px_#0000001a]">
       <input
-        className="todo-input"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        type="text"
+        className="w-full text-[2.4rem] font-light text-todo-default-color bg-todo-offwhite outline-none shadow-[0_-2px_1px_rgba(0,0,0,0.03)] py-[1.8rem] pl-[6rem] italic placeholder-opacity-20"
         placeholder="What needs to be done?"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
     </form>
   );
-};
-
-export default TodoInput;
+}
