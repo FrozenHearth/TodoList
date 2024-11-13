@@ -1,13 +1,12 @@
-import './App.css';
 import TodoList from '@/components/TodoList';
 
-function App() {
+export default function App() {
   return (
     <>
-      <h1 className="header-text">todos</h1>
+      <h1 className="w-full text-[10rem] font-[100] text-center text-[rgba(175,47,47,0.15)]">
+        todos
+      </h1>
       <TodoList />
     </>
   );
 }
-
-export default App;
